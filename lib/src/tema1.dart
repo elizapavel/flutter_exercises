@@ -21,12 +21,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final String defaultErrorMessage =
-      'The inserted amount is not valid. Please use only digits and \'.\'';
-  final double ronPerEuro = 4.87;
-  String enteredValue = '';
-  double finalValue = 0;
-  String errorMessage = '';
+  final String _defaultErrorMessage = 'The inserted amount is not valid. Please use only digits and \'.\'';
+  final double _ronPerEuro = 4.87;
+  String _enteredValue = '';
+  double _finalValue = 0;
+  String _errorMessage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -35,71 +34,68 @@ class _HomePageState extends State<HomePage> {
           title: const Align(
         child: Text('Currency Converter'),
       )),
-      body: Column(children: <Widget>[
-        Align(
-          child: Padding(
+      body: Column(
+        children: <Widget>[
+          Align(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Image.network(
+                'https://cdn3.iconfinder.com/data/icons/gradient-1/50/79-512.png',
+                height: 100,
+              ),
+            ),
+          ),
+          Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Image.network(
-              'https://cdn3.iconfinder.com/data/icons/gradient-1/50/79-512.png',
-              height: 100,
+            child: TextField(
+              keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+              // better make the validation manual, so that the user has feedback
+              // when something is not right
+              // inputFormatters: <TextInputFormatter>[
+              //   FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d?\d?)')),
+              // ],
+              onChanged: (String value) {
+                _enteredValue = value;
+                if (value == null || double.tryParse(value) == null) {
+                  _errorMessage = _defaultErrorMessage;
+                } else {
+                  _errorMessage = null;
+                }
+              },
+              decoration: InputDecoration(
+                hintText: 'Amount',
+                errorText: _errorMessage,
+                suffixText: '€',
+              ),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: TextField(
-            keyboardType: const TextInputType.numberWithOptions(
-                decimal: true, signed: true),
-            // better make the formatting manual, so that the user has feedback
-            // when something is not right
-            // inputFormatters: <TextInputFormatter>[
-            //   FilteringTextInputFormatter.allow(RegExp(r'(^\d*\.?\d?\d?)')),
-            // ],
-            onChanged: (String value) {
-              enteredValue = value;
-              if (value == null || double.tryParse(value) == null) {
-                errorMessage = defaultErrorMessage;
-              } else {
-                errorMessage = null;
-              }
+          ElevatedButton(
+            child: const Text('Convert'),
+            onPressed: () {
+              setState(() {
+                if (_enteredValue != null && _enteredValue.isNotEmpty && double.tryParse(_enteredValue) != null) {
+                  _finalValue = double.parse(_enteredValue) * _ronPerEuro;
+                  _errorMessage = null;
+                } else {
+                  _errorMessage = _defaultErrorMessage;
+                }
+              });
             },
-            decoration: InputDecoration(
-              hintText: 'Amount',
-              errorText: errorMessage,
-              suffixText: '€',
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Text(
+              _enteredValue != null && _enteredValue.isNotEmpty && double.tryParse(_enteredValue) != null
+                  ? _finalValue.toString() + ' LEI'
+                  : '',
+              style: const TextStyle(
+                fontSize: 24,
+                color: Colors.black54,
+              ),
             ),
           ),
-        ),
-        ElevatedButton(
-          child: const Text('Convert'),
-          onPressed: () {
-            setState(() {
-              if (enteredValue != null &&
-                  enteredValue.isNotEmpty &&
-                  double.tryParse(enteredValue) != null) {
-                finalValue = double.parse(enteredValue) * ronPerEuro;
-                errorMessage = null;
-              } else {
-                errorMessage = defaultErrorMessage;
-              }
-            });
-          },
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 20.0),
-          child: Text(
-            enteredValue != null &&
-                    enteredValue.isNotEmpty &&
-                    double.tryParse(enteredValue) != null
-                ? finalValue.toString() + ' LEI'
-                : '',
-            style: const TextStyle(
-              fontSize: 24,
-              color: Colors.black54,
-            ),
-          ),
-        ),
-      ]),
+        ],
+      ),
     );
   }
 }
