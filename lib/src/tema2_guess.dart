@@ -110,6 +110,7 @@ class _HomePageState extends State<HomePage> {
                         onChanged: (String value) {
                           _triedNumber = value;
                         },
+                        readOnly: _showResetButton,
                       ),
                     ),
                     if (_showResetButton) resetButton() else guessButton()
