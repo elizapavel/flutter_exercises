@@ -21,7 +21,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final String _defaultErrorMessage = 'The inserted amount is not valid. Please use only digits and \'.\'';
+  final String _defaultErrorMessage =
+      'The inserted amount is not valid. Please use only digits and \'.\'';
   final double _ronPerEuro = 4.87;
   String _enteredValue = '';
   double _finalValue = 0;
@@ -31,9 +32,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Align(
-        child: Text('Currency Converter'),
-      )),
+        title: const Align(
+          child: Text('Currency Converter'),
+        ),
+      ),
       body: Column(
         children: <Widget>[
           Align(
@@ -48,7 +50,8 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextField(
-              keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+              keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true, signed: true),
               // better make the validation manual, so that the user has feedback
               // when something is not right
               // inputFormatters: <TextInputFormatter>[
@@ -73,7 +76,9 @@ class _HomePageState extends State<HomePage> {
             child: const Text('Convert'),
             onPressed: () {
               setState(() {
-                if (_enteredValue != null && _enteredValue.isNotEmpty && double.tryParse(_enteredValue) != null) {
+                if (_enteredValue != null &&
+                    _enteredValue.isNotEmpty &&
+                    double.tryParse(_enteredValue) != null) {
                   _finalValue = double.parse(_enteredValue) * _ronPerEuro;
                   _errorMessage = null;
                 } else {
@@ -85,7 +90,9 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.only(top: 20.0),
             child: Text(
-              _enteredValue != null && _enteredValue.isNotEmpty && double.tryParse(_enteredValue) != null
+              _enteredValue != null &&
+                      _enteredValue.isNotEmpty &&
+                      double.tryParse(_enteredValue) != null
                   ? _finalValue.toString() + ' LEI'
                   : '',
               style: const TextStyle(
