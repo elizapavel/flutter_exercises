@@ -30,6 +30,76 @@ class _HomePageState extends State<HomePage> {
   String _triedNumber = '';
   bool _showResetButton = false;
 
+
+  Widget guessButton() {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: RaisedButton(
+        onPressed: () {
+          final int triedNumber = int.parse(_triedNumber);
+          if (triedNumber < _goalNumber) {
+            _guessResult = 'Try higher!';
+          } else if (triedNumber > _goalNumber) {
+            _guessResult = 'Try lower!';
+          } else {
+            _guessResult = 'You guessed right!';
+            _showDialog();
+          }
+          setState(() {});
+        },
+        child: const Text('Guess'),
+      ),
+    );
+  }
+
+  Widget resetButton() {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: RaisedButton(
+        onPressed: () {
+          reset();
+        },
+        child: const Text('Reset'),
+      ),
+    );
+  }
+
+  void _showDialog() {
+    showDialog<AlertDialog>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('You guessed right!'),
+          content: Text('It was $_triedNumber'),
+          actions: <FlatButton>[
+            FlatButton(
+              child: const Text('Try again!'),
+              onPressed: () {
+                reset();
+                Navigator.of(context).pop();
+              },
+            ),
+            FlatButton(
+              child: const Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+                _showResetButton = true;
+                setState(() {});
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void reset() {
+    _showResetButton = false;
+    _goalNumber = rand.nextInt(100);
+    _triedNumber = '';
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,74 +192,5 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
-  }
-
-  Widget guessButton() {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: RaisedButton(
-        onPressed: () {
-          final int triedNumber = int.parse(_triedNumber);
-          if (triedNumber < _goalNumber) {
-            _guessResult = 'Try higher!';
-          } else if (triedNumber > _goalNumber) {
-            _guessResult = 'Try lower!';
-          } else {
-            _guessResult = 'You guessed right!';
-            _showDialog();
-          }
-          setState(() {});
-        },
-        child: const Text('Guess'),
-      ),
-    );
-  }
-
-  Widget resetButton() {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: RaisedButton(
-        onPressed: () {
-          reset();
-        },
-        child: const Text('Reset'),
-      ),
-    );
-  }
-
-  void _showDialog() {
-    showDialog<AlertDialog>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('You guessed right!'),
-          content: Text('It was $_triedNumber'),
-          actions: <FlatButton>[
-            FlatButton(
-              child: const Text('Try again!'),
-              onPressed: () {
-                reset();
-                Navigator.of(context).pop();
-              },
-            ),
-            FlatButton(
-              child: const Text('OK'),
-              onPressed: () {
-                Navigator.of(context).pop();
-                _showResetButton = true;
-                setState(() {});
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  void reset() {
-    _showResetButton = false;
-    _goalNumber = rand.nextInt(100);
-    _triedNumber = '';
-    setState(() {});
   }
 }

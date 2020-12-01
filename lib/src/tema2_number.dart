@@ -26,6 +26,27 @@ class _HomePageState extends State<HomePage> {
   String _insertedNumber = '';
   String _result = '';
 
+  bool _isSquare(int number) {
+    return number > 0 && sqrt(number) % 1 == 0;
+  }
+
+  bool _isTriangular(int number) {
+    return number > 0 &&
+        num.parse(pow(number, 1 / 3).toStringAsFixed(3)) % 1 == 0;
+  }
+
+  void _showDialog() {
+    showDialog<AlertDialog>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(_insertedNumber),
+          content: Text(_result),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,27 +108,6 @@ class _HomePageState extends State<HomePage> {
             Icons.check,
           ),
         ),
-    );
-  }
-
-  bool _isSquare(int number) {
-    return number > 0 && sqrt(number) % 1 == 0;
-  }
-
-  bool _isTriangular(int number) {
-    return number > 0 &&
-        num.parse(pow(number, 1 / 3).toStringAsFixed(3)) % 1 == 0;
-  }
-
-  void _showDialog() {
-    showDialog<AlertDialog>(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(_insertedNumber),
-          content: Text(_result),
-        );
-      },
     );
   }
 }
