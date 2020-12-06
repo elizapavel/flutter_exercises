@@ -1,4 +1,4 @@
-import 'src/tema2_number.dart' as app;
+import 'src/tema3_tictactoe.dart' as app;
 
 void main() {
   app.main();
