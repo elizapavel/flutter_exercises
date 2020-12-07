@@ -68,38 +68,37 @@ class _HomePageState extends State<HomePage> {
         ),
         itemBuilder: (BuildContext context, int index) {
           return FlatButton(
-              onPressed: () {},
-              padding: const EdgeInsets.all(0),
-              child: Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: <Widget>[
-                    FlatButton(
-                      padding: const EdgeInsets.all(0),
-                      onPressed: () {
-                        _play(_data[index ~/ 2][index % 2].values.first);
-                      },
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                          gradient: LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                            colors: <Color>[
-                              Colors.blueAccent,
-                              Colors.lightBlueAccent
-                            ],
-                          ),
-                        ),
+            onPressed: () {},
+            padding: const EdgeInsets.all(0),
+            child: Stack(
+              alignment: AlignmentDirectional.center,
+              children: <Widget>[
+                FlatButton(
+                  padding: const EdgeInsets.all(0),
+                  onPressed: () {
+                    _play(_data[index ~/ 2][index % 2].values.first);
+                  },
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                      gradient: LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        colors: <Color>[Colors.blueAccent, Colors.lightBlueAccent],
                       ),
                     ),
-                    Text(
-                      _data[index ~/ 2][index % 2].keys.first,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ]));
+                  ),
+                ),
+                Text(
+                  _data[index ~/ 2][index % 2].keys.first,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          );
         },
       ),
     );
