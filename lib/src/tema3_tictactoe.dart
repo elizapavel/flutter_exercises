@@ -20,7 +20,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static final Color _defaultColor = Colors.white;
+  static const Color _defaultColor = Colors.white;
 
   final List<Color> _allSquares = <Color>[
     _defaultColor,
