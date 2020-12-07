@@ -1,4 +1,4 @@
-import 'src/tema3_tictactoe.dart' as app;
+import 'src/tema3_phrases.dart' as app;
 
 void main() {
   app.main();
