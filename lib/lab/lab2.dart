@@ -11,7 +11,8 @@ Future<void> main() async {
   final Map<String, dynamic> jsonData = jsonDecode(response.body);
   final List<dynamic> movieList = jsonData['data']['movies'];
 
-  final List<Movie> movies = movieList.map((dynamic item) => Movie.fromJson(item)).toList();
+  final List<Movie> movies =
+      movieList.map((dynamic item) => Movie.fromJson(item)).toList();
 
   for (int i = 0; i < movies.length; i++) {
     print(movies[i]);
@@ -21,7 +22,11 @@ Future<void> main() async {
 }
 
 class Movie {
-  const Movie({@required this.title, @required this.year, @required this.summary, @required this.genres});
+  const Movie(
+      {@required this.title,
+      @required this.year,
+      @required this.summary,
+      @required this.genres});
 
   Movie.fromJson(dynamic item)
       : title = item['title'],

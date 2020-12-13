@@ -171,7 +171,8 @@ class _HomePageState extends State<HomePage> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: TextField(
-                        keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+                        keyboardType: const TextInputType.numberWithOptions(
+                            decimal: true, signed: true),
                         inputFormatters: <TextInputFormatter>[
                           FilteringTextInputFormatter.digitsOnly,
                         ],

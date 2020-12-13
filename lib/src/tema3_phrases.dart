@@ -84,7 +84,10 @@ class _HomePageState extends State<HomePage> {
                       gradient: LinearGradient(
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
-                        colors: <Color>[Colors.blueAccent, Colors.lightBlueAccent],
+                        colors: <Color>[
+                          Colors.blueAccent,
+                          Colors.lightBlueAccent
+                        ],
                       ),
                     ),
                   ),

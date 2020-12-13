@@ -31,7 +31,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   bool _isTriangular(int number) {
-    return number > 0 && num.parse(pow(number, 1 / 3).toStringAsFixed(3)) % 1 == 0;
+    return number > 0 &&
+        num.parse(pow(number, 1 / 3).toStringAsFixed(3)) % 1 == 0;
   }
 
   void _showDialog() {
@@ -72,7 +73,8 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextField(
-              keyboardType: const TextInputType.numberWithOptions(decimal: true, signed: true),
+              keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true, signed: true),
               inputFormatters: <TextInputFormatter>[
                 FilteringTextInputFormatter.digitsOnly,
               ],
@@ -96,7 +98,8 @@ class _HomePageState extends State<HomePage> {
           else if (isTriangularCondition)
             _result = 'Number $_insertedNumber is TRIANGULAR.';
           else
-            _result = 'Number $_insertedNumber is neither TRIANGULAR or SQUARE.';
+            _result =
+                'Number $_insertedNumber is neither TRIANGULAR or SQUARE.';
 
           _showDialog();
         },

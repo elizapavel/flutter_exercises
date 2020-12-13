@@ -26,14 +26,17 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _getData() async {
     final List<Map<String, String>> listData = <Map<String, String>>[];
-    final Response response = await get('https://www.worldometers.info/geography/flags-of-the-world/');
+    final Response response = await get(
+        'https://www.worldometers.info/geography/flags-of-the-world/');
     final String data = response.body;
 
     final List<String> items = data.split('<a href="/img/flags');
     for (final String item in items.skip(1)) {
       const String pattern = 'padding-top:10px">';
-      final String countryName = item.substring(item.indexOf(pattern) + pattern.length, item.indexOf('</div>'));
-      final String flagUrl = 'https://www.worldometers.info/img/flags${item.split('"')[0]}';
+      final String countryName = item.substring(
+          item.indexOf(pattern) + pattern.length, item.indexOf('</div>'));
+      final String flagUrl =
+          'https://www.worldometers.info/img/flags${item.split('"')[0]}';
 
       listData.add(<String, String>{countryName: flagUrl});
     }

@@ -60,89 +60,97 @@ class _HomePageState extends State<HomePage> {
     final List<Movie> movies =
         movieList.map((dynamic item) => Movie.fromJson(item)).toList();
 
-    setState(() {
-      _movies.addAll(movies);
-    });
+    setState(
+      () {
+        _movies.addAll(movies);
+      },
+    );
   }
 
   void _showDialog() {
     showDialog<AlertDialog>(
       context: context,
       builder: (BuildContext context) {
-        return StatefulBuilder(builder:
-            (BuildContext context, void Function(void Function()) setState) {
-          return AlertDialog(
-            title: Column(
-              children: <Widget>[
-                const Text(
-                  'Filter results by:',
-                  style: TextStyle(
-                    fontSize: 24,
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 24.0),
-                  child: Text('Search value:'),
-                ),
-                TextField(
-                  onChanged: (String value) {
-                    _searchValue = value;
-                  },
-                  controller: TextEditingController()..text = _searchValue,
-                  decoration: InputDecoration(
-                    hintText: 'Movie name...',
-                    suffix: IconButton(
-                      icon: const Icon(Icons.search),
-                      onPressed: () {},
+        return StatefulBuilder(
+          builder:
+              (BuildContext context, void Function(void Function()) setState) {
+            return AlertDialog(
+              title: Column(
+                children: <Widget>[
+                  const Text(
+                    'Filter results by:',
+                    style: TextStyle(
+                      fontSize: 24,
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 24.0),
-                  child: Text('Minimum Rating: $_sliderValue'),
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  child: Slider(
-                    value: _sliderValue,
-                    min: 0,
-                    max: 9,
-                    // divisions: 5,
-                    label: _sliderValue.round().toString(),
-                    onChanged: (double value) {
-                      setState(() {
-                        _sliderValue = double.parse(value.toStringAsFixed(1));
-                      });
-                    },
+                  const Padding(
+                    padding: EdgeInsets.only(top: 24.0),
+                    child: Text('Search value:'),
                   ),
+                  TextField(
+                    onChanged: (String value) {
+                      _searchValue = value;
+                    },
+                    controller: TextEditingController()..text = _searchValue,
+                    decoration: InputDecoration(
+                      hintText: 'Movie name...',
+                      suffix: IconButton(
+                        icon: const Icon(Icons.search),
+                        onPressed: () {},
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 24.0),
+                    child: Text('Minimum Rating: $_sliderValue'),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: Slider(
+                      value: _sliderValue,
+                      min: 0,
+                      max: 9,
+                      // divisions: 5,
+                      label: _sliderValue.round().toString(),
+                      onChanged: (double value) {
+                        setState(
+                          () {
+                            _sliderValue =
+                                double.parse(value.toStringAsFixed(1));
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              actions: <FlatButton>[
+                FlatButton(
+                  child: const Text('Apply filters'),
+                  onPressed: () {
+                    _filters += '&query_term=$_searchValue';
+                    _filters += '&minimum_rating=$_sliderValue';
+
+                    _resetMovies();
+                    loadMovies();
+                    Navigator.of(context).pop();
+                  },
                 ),
               ],
-            ),
-            actions: <FlatButton>[
-              FlatButton(
-                child: const Text('Apply filters'),
-                onPressed: () {
-                  _filters += '&query_term=$_searchValue';
-                  _filters += '&minimum_rating=$_sliderValue';
-
-                  _resetMovies();
-                  loadMovies();
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
+            );
+          },
         );
       },
     );
   }
 
   void _resetMovies() {
-    setState(() {
-      _currentPage = 1;
-      _movies = <Movie>[];
-    });
+    setState(
+      () {
+        _currentPage = 1;
+        _movies = <Movie>[];
+      },
+    );
   }
 
   Widget _movieList() {

@@ -49,12 +49,14 @@ class _HomePageState extends State<HomePage> {
 
     // check horizontal line
     final int _index = _row * 3;
-    if (_allSquares[_index] == _allSquares[_index + 1] && _allSquares[_index + 1] == _allSquares[_index + 2]) {
+    if (_allSquares[_index] == _allSquares[_index + 1] &&
+        _allSquares[_index + 1] == _allSquares[_index + 2]) {
       return true;
     }
 
     // check vertical line
-    if (_allSquares[_col] == _allSquares[_col + 3] && _allSquares[_col + 3] == _allSquares[_col + 6]) {
+    if (_allSquares[_col] == _allSquares[_col + 3] &&
+        _allSquares[_col + 3] == _allSquares[_col + 6]) {
       return true;
     }
 
@@ -67,8 +69,10 @@ class _HomePageState extends State<HomePage> {
 
     // check counter diagonal
     if (counterDiagIndexes.contains(i) &&
-        _allSquares[counterDiagIndexes[0]] == _allSquares[counterDiagIndexes[1]] &&
-        _allSquares[counterDiagIndexes[1]] == _allSquares[counterDiagIndexes[2]]) {
+        _allSquares[counterDiagIndexes[0]] ==
+            _allSquares[counterDiagIndexes[1]] &&
+        _allSquares[counterDiagIndexes[1]] ==
+            _allSquares[counterDiagIndexes[2]]) {
       return true;
     }
 
@@ -184,7 +188,8 @@ class _HomePageState extends State<HomePage> {
                         () {
                           _allSquares[index] = _colors[_nextColorIndex];
                           if (_currentPlayerWon(index)) {
-                            _result = 'The winner is ' + (_nextColorIndex == 0 ? 'RED' : 'GREEN');
+                            _result = 'The winner is ' +
+                                (_nextColorIndex == 0 ? 'RED' : 'GREEN');
 
                             _redScore += 1 - _nextColorIndex;
                             _greenScore += _nextColorIndex;
