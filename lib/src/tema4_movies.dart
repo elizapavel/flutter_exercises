@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:http/http.dart';
 
 void main() {
@@ -37,8 +35,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> loadMovies() async {
-    final Response response = await get(
-        'https://yts.mx/api/v2/list_movies.json?limit=20&page=$_currentPage$_filters');
+    final Response response =
+        await get('https://yts.mx/api/v2/list_movies.json?limit=20&page='
+            '$_currentPage$_filters');
 
     if (response == null) {
       _resetMovies();
