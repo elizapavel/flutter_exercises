@@ -183,7 +183,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification scrollInfo) {
-          if (scrollInfo.metrics.pixels == scrollInfo.metrics.pixels) {
+          if (scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent) {
             _currentPage++;
             loadMovies();
           }
