@@ -35,9 +35,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> loadMovies() async {
-    final Response response =
-        await get('https://yts.mx/api/v2/list_movies.json?limit=20&page='
-            '$_currentPage$_filters');
+    final Response response = await get('https://yts.mx/api/v2/list_movies.json?limit=20&page='
+        '$_currentPage$_filters');
 
     if (response == null) {
       _resetMovies();
@@ -56,8 +55,7 @@ class _HomePageState extends State<HomePage> {
       return;
     }
 
-    final List<Movie> movies =
-        movieList.map((dynamic item) => Movie.fromJson(item)).toList();
+    final List<Movie> movies = movieList.map((dynamic item) => Movie.fromJson(item)).toList();
 
     setState(
       () {
@@ -71,8 +69,7 @@ class _HomePageState extends State<HomePage> {
       context: context,
       builder: (BuildContext context) {
         return StatefulBuilder(
-          builder:
-              (BuildContext context, void Function(void Function()) setState) {
+          builder: (BuildContext context, void Function(void Function()) setState) {
             return AlertDialog(
               title: Column(
                 children: <Widget>[
@@ -114,8 +111,7 @@ class _HomePageState extends State<HomePage> {
                       onChanged: (double value) {
                         setState(
                           () {
-                            _sliderValue =
-                                double.parse(value.toStringAsFixed(1));
+                            _sliderValue = double.parse(value.toStringAsFixed(1));
                           },
                         );
                       },
@@ -233,8 +229,6 @@ class Movie {
 
   String getShortInfo() {
     genres.join(' ');
-    return genres.join(' ') +
-        '\n\n' +
-        (summary.length > 80 ? summary.substring(0, 80) + '...' : summary);
+    return genres.join(' ') + '\n\n' + (summary.length > 80 ? summary.substring(0, 80) + '...' : summary);
   }
 }
