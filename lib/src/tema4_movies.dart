@@ -30,8 +30,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    loadMovies();
     super.initState();
+    loadMovies();
   }
 
   Future<void> loadMovies() async {
