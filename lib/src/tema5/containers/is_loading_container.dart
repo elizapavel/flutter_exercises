@@ -19,4 +19,3 @@ class IsLoadingContainer extends StatelessWidget {
     );
   }
 }
-

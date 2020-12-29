@@ -1,4 +1,3 @@
-
 import 'package:first_flutter_app/src/tema5/actions/get_movies.dart';
 import 'package:first_flutter_app/src/tema5/data/yts_api.dart';
 import 'package:first_flutter_app/src/tema5/middleware/app_middleware.dart';
@@ -13,14 +12,14 @@ import 'package:redux/redux.dart';
 import 'presentation/home_page.dart';
 
 void main() {
-  final Client client  = Client();
+  final Client client = Client();
   final YtsApi ytsApi = YtsApi(client: client);
   final AppMiddleware middleware = AppMiddleware(ytsApi: ytsApi);
   final AppState initialState = AppState.initialState();
   final Store<AppState> store = Store<AppState>(
-      reducer,
-      initialState: initialState,
-      middleware: middleware.middleware,
+    reducer,
+    initialState: initialState,
+    middleware: middleware.middleware,
   );
 
   store.dispatch(const GetMovies());
@@ -29,7 +28,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key, @required this.store}) : super(key : key);
+  const MyApp({Key key, @required this.store}) : super(key: key);
 
   final Store<AppState> store;
 

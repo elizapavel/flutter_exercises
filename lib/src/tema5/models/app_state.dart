@@ -26,5 +26,3 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   bool get isLoading;
 }
-
-

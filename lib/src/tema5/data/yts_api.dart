@@ -7,7 +7,7 @@ import 'package:meta/meta.dart';
 class YtsApi {
   const YtsApi({@required Client client})
       : assert(client != null),
-       _client = client;
+        _client = client;
 
   final Client _client;
 

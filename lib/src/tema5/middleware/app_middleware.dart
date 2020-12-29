@@ -1,4 +1,3 @@
-
 import 'package:first_flutter_app/src/tema5/actions/get_movies.dart';
 import 'package:first_flutter_app/src/tema5/data/yts_api.dart';
 import 'package:first_flutter_app/src/tema5/models/app_state.dart';
@@ -8,8 +7,8 @@ import 'package:redux/redux.dart';
 
 class AppMiddleware {
   const AppMiddleware({@required YtsApi ytsApi})
-    : assert(ytsApi != null),
-      _ytsApi = ytsApi;
+      : assert(ytsApi != null),
+        _ytsApi = ytsApi;
 
   final YtsApi _ytsApi;
 

@@ -21,4 +21,3 @@ class MoviesContainer extends StatelessWidget {
     );
   }
 }
-

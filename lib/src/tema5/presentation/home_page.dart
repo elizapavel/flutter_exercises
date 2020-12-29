@@ -35,8 +35,7 @@ class _HomePageState extends State<HomePage> {
                     itemCount: movies.length,
                     itemBuilder: (BuildContext context, int index) {
                       return ListTile(
-                        contentPadding:
-                            const EdgeInsets.only(top: 5, bottom: 5, left: 10),
+                        contentPadding: const EdgeInsets.only(top: 5, bottom: 5, left: 10),
                         leading: Image.network(
                           movies[index].image,
                         ),

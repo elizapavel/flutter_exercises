@@ -1,7 +1,7 @@
 import 'package:first_flutter_app/src/tema5/actions/get_movies.dart';
 import 'package:first_flutter_app/src/tema5/models/app_state.dart';
 
-AppState reducer (AppState state, dynamic action) {
+AppState reducer(AppState state, dynamic action) {
   final AppStateBuilder appStateBuilder = AppStateBuilder();
 
   if (action is GetMovies) {
