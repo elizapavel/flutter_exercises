@@ -228,7 +228,6 @@ class Movie {
   }
 
   String getShortInfo() {
-    genres.join(' ');
     return genres.join(' ') + '\n\n' + (summary.length > 80 ? summary.substring(0, 80) + '...' : summary);
   }
 }
