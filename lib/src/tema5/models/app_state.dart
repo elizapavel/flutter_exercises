@@ -7,12 +7,7 @@ import 'package:first_flutter_app/src/tema5/models/movie.dart';
 part 'app_state.g.dart';
 
 abstract class AppState implements Built<AppState, AppStateBuilder> {
-  factory AppState([void Function(AppStateBuilder) updates]) {
-    return _$AppState._(
-      isLoading: true,
-      movies: BuiltList<Movie>(),
-    );
-  }
+  factory AppState([void Function(AppStateBuilder) updates]) = _$AppState;
 
   factory AppState.initialState() {
     final AppStateBuilder appStateBuilder = AppStateBuilder();
