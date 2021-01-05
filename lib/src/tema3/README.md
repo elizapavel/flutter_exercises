@@ -11,6 +11,8 @@ from Romanian to English. When pressing any card that contains a phrase, it will
 automatically start a voice recording of that phrase in the correspondent language. 
 The voice recordings are from Google Translate.
 
+![alt text](tema3_phrases.gif "Phrases")
+
 Tic Tac Toe
 -----------
 
@@ -28,3 +30,5 @@ will be updated. If there is a draw, no score will be updated.
 If a player color a square by mistake, there is an option to replay that round by pressing
 the "Try Again" button. This will not affect the current scores. If the two players want
  to replay the whole game, there is a "Reset Game" button, that clears both scores.
+ 
+![alt text](tema3_tictactoe.gif "Tic Tac Toe")

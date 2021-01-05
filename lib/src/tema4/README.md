@@ -6,3 +6,5 @@ scrolls to the bottom of the list and there is also a filter button. The filter 
 by a term and by rating.
 
 The listed films show the cover photo of the movie, the title, genre, rating and summary.
+
+![alt text](tema4.gif "Movie list")

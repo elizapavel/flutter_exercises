@@ -5,3 +5,5 @@ This app is similar with the one from the previous homework, but the difference 
 this one doesn't have filters and doesn't update when scrolling.
 
 The purpose of this homework is to get used to Redux and Serialization.
+
+![alt text](tema5.gif "Movie list")

@@ -9,3 +9,5 @@ and setState, so this is a simple example to begin with.
 
 The most challenging part of this app was data validation, because the accepted 
 input cannot be empty or any string, and can also accept decimals.
+
+![alt text](tema1.gif "Currency Converter")
