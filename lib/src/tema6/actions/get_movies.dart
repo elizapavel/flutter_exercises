@@ -1,4 +1,3 @@
-
 library get_movies;
 
 import 'package:freezed_annotation/freezed_annotation.dart';

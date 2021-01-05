@@ -34,5 +34,4 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   @nullable
   int get selectedMovie;
-
 }

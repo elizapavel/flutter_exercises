@@ -11,18 +11,18 @@ class YtsApi {
 
   final Client _client;
 
-  Future<List<Movie>> getMovies(int page, String queryTerm, double minRating) async {
-    final Uri url = Uri(
-      scheme: 'https',
-      host: 'yts.mx',
-      pathSegments: <String>['api', 'v2', 'list_movies.json'],
-      queryParameters: <String, String>{
-        'limit': '10',
-        'page': '$page',
-        'query_term': '$queryTerm',
-        'minimum_rating': '$minRating',
-      }
-    );
+  Future<List<Movie>> getMovies(
+      int page, String queryTerm, double minRating) async {
+    final Uri url = Uri(scheme: 'https', host: 'yts.mx', pathSegments: <String>[
+      'api',
+      'v2',
+      'list_movies.json'
+    ], queryParameters: <String, String>{
+      'limit': '10',
+      'page': '$page',
+      'query_term': '$queryTerm',
+      'minimum_rating': '$minRating',
+    });
 
     final Response response = await _client.get(url);
 

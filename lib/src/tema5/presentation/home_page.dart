@@ -34,10 +34,11 @@ class _HomePageState extends State<HomePage> {
                     shrinkWrap: true,
                     itemCount: movies.length,
                     itemBuilder: (BuildContext context, int index) {
-                      Movie movie = movies[index];
+                      final Movie movie = movies[index];
 
                       return ListTile(
-                        contentPadding: const EdgeInsets.only(top: 5, bottom: 5, left: 10),
+                        contentPadding:
+                            const EdgeInsets.only(top: 5, bottom: 5, left: 10),
                         leading: Image.network(
                           movie.image,
                         ),

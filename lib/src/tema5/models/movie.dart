@@ -34,6 +34,8 @@ abstract class Movie implements Built<Movie, MovieBuilder> {
   }
 
   String getShortInfo() {
-    return genres.join(' ') + '\n\n' + (summary.length > 80 ? summary.substring(0, 80) + '...' : summary);
+    return genres.join(' ') +
+        '\n\n' +
+        (summary.length > 80 ? summary.substring(0, 80) + '...' : summary);
   }
 }

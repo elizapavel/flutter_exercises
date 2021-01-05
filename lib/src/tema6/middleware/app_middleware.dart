@@ -18,12 +18,14 @@ class AppMiddleware {
     ];
   }
 
-  Future<void> _getMovies(Store<AppState> store, dynamic action, NextDispatcher next) async {
+  Future<void> _getMovies(
+      Store<AppState> store, dynamic action, NextDispatcher next) async {
     next(action);
     if (action is GetMoviesStart) {
       try {
         final AppState state = store.state;
-        final List<Movie> movies = await _ytsApi.getMovies(state.page, state.queryTerm, state.minRating);
+        final List<Movie> movies = await _ytsApi.getMovies(
+            state.page, state.queryTerm, state.minRating);
 
         final GetMoviesSuccessful successful = GetMovies.successful(movies);
         store.dispatch(successful);

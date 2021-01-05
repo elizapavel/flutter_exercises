@@ -18,7 +18,8 @@ class AppMiddleware {
     ];
   }
 
-  Future<void> _getMovies(Store<AppState> store, dynamic action, NextDispatcher next) async {
+  Future<void> _getMovies(
+      Store<AppState> store, dynamic action, NextDispatcher next) async {
     next(action);
     if (action is GetMovies) {
       try {
