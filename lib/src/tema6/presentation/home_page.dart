@@ -38,13 +38,11 @@ class _HomePageState extends State<HomePage> {
                     final Movie movie = movies[index];
                     return InkWell(
                       onTap: () {
-                        StoreProvider.of<AppState>(context)
-                            .dispatch(SelectMovie(movie.id));
+                        StoreProvider.of<AppState>(context).dispatch(SelectMovie(movie.id));
                         Navigator.pushNamed(context, '/moviePage');
                       },
                       child: ListTile(
-                        contentPadding:
-                            const EdgeInsets.only(top: 5, bottom: 5, left: 10),
+                        contentPadding: const EdgeInsets.only(top: 5, bottom: 5, left: 10),
                         leading: Image.network(
                           movie.image,
                         ),
@@ -110,8 +108,7 @@ class _HomePageState extends State<HomePage> {
                           label: minRating.round().toString(),
                           onChanged: (double value) {
                             minRating = double.parse(value.toStringAsFixed(1));
-                            StoreProvider.of<AppState>(context)
-                                .dispatch(UpdateRating(minRating));
+                            StoreProvider.of<AppState>(context).dispatch(UpdateRating(minRating));
                           },
                         ),
                       ),

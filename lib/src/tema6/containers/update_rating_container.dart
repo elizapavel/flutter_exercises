@@ -5,8 +5,7 @@ import 'package:redux/redux.dart';
 import 'package:meta/meta.dart';
 
 class UpdateRatingContainer extends StatelessWidget {
-  const UpdateRatingContainer({Key key, @required this.builder})
-      : super(key: key);
+  const UpdateRatingContainer({Key key, @required this.builder}) : super(key: key);
 
   final ViewModelBuilder<double> builder;
 

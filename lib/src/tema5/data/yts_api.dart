@@ -12,8 +12,7 @@ class YtsApi {
   final Client _client;
 
   Future<List<Movie>> getMovies() async {
-    final Response response = await _client
-        .get('https://yts.mx/api/v2/list_movies.json?limit=20&page=');
+    final Response response = await _client.get('https://yts.mx/api/v2/list_movies.json?limit=20&page=');
 
     final Map<String, dynamic> jsonData = jsonDecode(response.body);
     final List<dynamic> movieList = jsonData['data']['movies'];

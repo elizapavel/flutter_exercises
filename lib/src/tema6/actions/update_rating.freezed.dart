@@ -34,8 +34,7 @@ mixin _$UpdateRating {
 
 /// @nodoc
 abstract class $UpdateRatingCopyWith<$Res> {
-  factory $UpdateRatingCopyWith(
-          UpdateRating value, $Res Function(UpdateRating) then) =
+  factory $UpdateRatingCopyWith(UpdateRating value, $Res Function(UpdateRating) then) =
       _$UpdateRatingCopyWithImpl<$Res>;
   $Res call({double minRating});
 }
@@ -59,10 +58,8 @@ class _$UpdateRatingCopyWithImpl<$Res> implements $UpdateRatingCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UpdateRatingCopyWith<$Res>
-    implements $UpdateRatingCopyWith<$Res> {
-  factory _$UpdateRatingCopyWith(
-          _UpdateRating value, $Res Function(_UpdateRating) then) =
+abstract class _$UpdateRatingCopyWith<$Res> implements $UpdateRatingCopyWith<$Res> {
+  factory _$UpdateRatingCopyWith(_UpdateRating value, $Res Function(_UpdateRating) then) =
       __$UpdateRatingCopyWithImpl<$Res>;
   @override
   $Res call({double minRating});
@@ -71,8 +68,7 @@ abstract class _$UpdateRatingCopyWith<$Res>
 /// @nodoc
 class __$UpdateRatingCopyWithImpl<$Res> extends _$UpdateRatingCopyWithImpl<$Res>
     implements _$UpdateRatingCopyWith<$Res> {
-  __$UpdateRatingCopyWithImpl(
-      _UpdateRating _value, $Res Function(_UpdateRating) _then)
+  __$UpdateRatingCopyWithImpl(_UpdateRating _value, $Res Function(_UpdateRating) _then)
       : super(_value, (v) => _then(v as _UpdateRating));
 
   @override
@@ -105,17 +101,14 @@ class _$_UpdateRating implements _UpdateRating {
     return identical(this, other) ||
         (other is _UpdateRating &&
             (identical(other.minRating, minRating) ||
-                const DeepCollectionEquality()
-                    .equals(other.minRating, minRating)));
+                const DeepCollectionEquality().equals(other.minRating, minRating)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(minRating);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(minRating);
 
   @override
-  _$UpdateRatingCopyWith<_UpdateRating> get copyWith =>
-      __$UpdateRatingCopyWithImpl<_UpdateRating>(this, _$identity);
+  _$UpdateRatingCopyWith<_UpdateRating> get copyWith => __$UpdateRatingCopyWithImpl<_UpdateRating>(this, _$identity);
 }
 
 abstract class _UpdateRating implements UpdateRating {

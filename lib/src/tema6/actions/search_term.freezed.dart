@@ -34,9 +34,7 @@ mixin _$SearchTerm {
 
 /// @nodoc
 abstract class $SearchTermCopyWith<$Res> {
-  factory $SearchTermCopyWith(
-          SearchTerm value, $Res Function(SearchTerm) then) =
-      _$SearchTermCopyWithImpl<$Res>;
+  factory $SearchTermCopyWith(SearchTerm value, $Res Function(SearchTerm) then) = _$SearchTermCopyWithImpl<$Res>;
   $Res call({String queryTerm});
 }
 
@@ -60,18 +58,14 @@ class _$SearchTermCopyWithImpl<$Res> implements $SearchTermCopyWith<$Res> {
 
 /// @nodoc
 abstract class _$SearchTermCopyWith<$Res> implements $SearchTermCopyWith<$Res> {
-  factory _$SearchTermCopyWith(
-          _SearchTerm value, $Res Function(_SearchTerm) then) =
-      __$SearchTermCopyWithImpl<$Res>;
+  factory _$SearchTermCopyWith(_SearchTerm value, $Res Function(_SearchTerm) then) = __$SearchTermCopyWithImpl<$Res>;
   @override
   $Res call({String queryTerm});
 }
 
 /// @nodoc
-class __$SearchTermCopyWithImpl<$Res> extends _$SearchTermCopyWithImpl<$Res>
-    implements _$SearchTermCopyWith<$Res> {
-  __$SearchTermCopyWithImpl(
-      _SearchTerm _value, $Res Function(_SearchTerm) _then)
+class __$SearchTermCopyWithImpl<$Res> extends _$SearchTermCopyWithImpl<$Res> implements _$SearchTermCopyWith<$Res> {
+  __$SearchTermCopyWithImpl(_SearchTerm _value, $Res Function(_SearchTerm) _then)
       : super(_value, (v) => _then(v as _SearchTerm));
 
   @override
@@ -104,17 +98,14 @@ class _$_SearchTerm implements _SearchTerm {
     return identical(this, other) ||
         (other is _SearchTerm &&
             (identical(other.queryTerm, queryTerm) ||
-                const DeepCollectionEquality()
-                    .equals(other.queryTerm, queryTerm)));
+                const DeepCollectionEquality().equals(other.queryTerm, queryTerm)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(queryTerm);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(queryTerm);
 
   @override
-  _$SearchTermCopyWith<_SearchTerm> get copyWith =>
-      __$SearchTermCopyWithImpl<_SearchTerm>(this, _$identity);
+  _$SearchTermCopyWith<_SearchTerm> get copyWith => __$SearchTermCopyWithImpl<_SearchTerm>(this, _$identity);
 }
 
 abstract class _SearchTerm implements SearchTerm {

@@ -34,9 +34,7 @@ mixin _$SelectMovie {
 
 /// @nodoc
 abstract class $SelectMovieCopyWith<$Res> {
-  factory $SelectMovieCopyWith(
-          SelectMovie value, $Res Function(SelectMovie) then) =
-      _$SelectMovieCopyWithImpl<$Res>;
+  factory $SelectMovieCopyWith(SelectMovie value, $Res Function(SelectMovie) then) = _$SelectMovieCopyWithImpl<$Res>;
   $Res call({int movieId});
 }
 
@@ -59,20 +57,16 @@ class _$SelectMovieCopyWithImpl<$Res> implements $SelectMovieCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SelectMovieCopyWith<$Res>
-    implements $SelectMovieCopyWith<$Res> {
-  factory _$SelectMovieCopyWith(
-          _SelectMovie value, $Res Function(_SelectMovie) then) =
+abstract class _$SelectMovieCopyWith<$Res> implements $SelectMovieCopyWith<$Res> {
+  factory _$SelectMovieCopyWith(_SelectMovie value, $Res Function(_SelectMovie) then) =
       __$SelectMovieCopyWithImpl<$Res>;
   @override
   $Res call({int movieId});
 }
 
 /// @nodoc
-class __$SelectMovieCopyWithImpl<$Res> extends _$SelectMovieCopyWithImpl<$Res>
-    implements _$SelectMovieCopyWith<$Res> {
-  __$SelectMovieCopyWithImpl(
-      _SelectMovie _value, $Res Function(_SelectMovie) _then)
+class __$SelectMovieCopyWithImpl<$Res> extends _$SelectMovieCopyWithImpl<$Res> implements _$SelectMovieCopyWith<$Res> {
+  __$SelectMovieCopyWithImpl(_SelectMovie _value, $Res Function(_SelectMovie) _then)
       : super(_value, (v) => _then(v as _SelectMovie));
 
   @override
@@ -104,17 +98,14 @@ class _$_SelectMovie implements _SelectMovie {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _SelectMovie &&
-            (identical(other.movieId, movieId) ||
-                const DeepCollectionEquality().equals(other.movieId, movieId)));
+            (identical(other.movieId, movieId) || const DeepCollectionEquality().equals(other.movieId, movieId)));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(movieId);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(movieId);
 
   @override
-  _$SelectMovieCopyWith<_SelectMovie> get copyWith =>
-      __$SelectMovieCopyWithImpl<_SelectMovie>(this, _$identity);
+  _$SelectMovieCopyWith<_SelectMovie> get copyWith => __$SelectMovieCopyWithImpl<_SelectMovie>(this, _$identity);
 }
 
 abstract class _SelectMovie implements SelectMovie {

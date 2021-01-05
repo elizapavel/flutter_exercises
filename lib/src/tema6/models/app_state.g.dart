@@ -20,16 +20,9 @@ class _$AppState extends AppState {
   @override
   final int selectedMovie;
 
-  factory _$AppState([void Function(AppStateBuilder) updates]) =>
-      (new AppStateBuilder()..update(updates)).build();
+  factory _$AppState([void Function(AppStateBuilder) updates]) => (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._(
-      {this.movies,
-      this.page,
-      this.queryTerm,
-      this.minRating,
-      this.isLoading,
-      this.selectedMovie})
+  _$AppState._({this.movies, this.page, this.queryTerm, this.minRating, this.isLoading, this.selectedMovie})
       : super._() {
     if (movies == null) {
       throw new BuiltValueNullFieldError('AppState', 'movies');
@@ -49,8 +42,7 @@ class _$AppState extends AppState {
   }
 
   @override
-  AppState rebuild(void Function(AppStateBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  AppState rebuild(void Function(AppStateBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   AppStateBuilder toBuilder() => new AppStateBuilder()..replace(this);
@@ -70,11 +62,7 @@ class _$AppState extends AppState {
   @override
   int get hashCode {
     return $jf($jc(
-        $jc(
-            $jc(
-                $jc($jc($jc(0, movies.hashCode), page.hashCode),
-                    queryTerm.hashCode),
-                minRating.hashCode),
+        $jc($jc($jc($jc($jc(0, movies.hashCode), page.hashCode), queryTerm.hashCode), minRating.hashCode),
             isLoading.hashCode),
         selectedMovie.hashCode));
   }
@@ -165,8 +153,7 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
         _$failedField = 'movies';
         movies.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'AppState', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError('AppState', _$failedField, e.toString());
       }
       rethrow;
     }

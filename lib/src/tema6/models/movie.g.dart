@@ -15,27 +15,20 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
   final String wireName = 'Movie';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Movie object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object> serialize(Serializers serializers, Movie object, {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'title',
-      serializers.serialize(object.title,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.title, specifiedType: const FullType(String)),
       'rating',
-      serializers.serialize(object.rating,
-          specifiedType: const FullType(double)),
+      serializers.serialize(object.rating, specifiedType: const FullType(double)),
       'summary',
-      serializers.serialize(object.summary,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.summary, specifiedType: const FullType(String)),
       'large_cover_image',
-      serializers.serialize(object.image,
-          specifiedType: const FullType(String)),
+      serializers.serialize(object.image, specifiedType: const FullType(String)),
       'genres',
-      serializers.serialize(object.genres,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(String)])),
+      serializers.serialize(object.genres, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
     ];
 
     return result;
@@ -53,30 +46,23 @@ class _$MovieSerializer implements StructuredSerializer<Movie> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'id':
-          result.id = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int)) as int;
           break;
         case 'title':
-          result.title = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
         case 'rating':
-          result.rating = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double;
+          result.rating = serializers.deserialize(value, specifiedType: const FullType(double)) as double;
           break;
         case 'summary':
-          result.summary = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.summary = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
         case 'large_cover_image':
-          result.image = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.image = serializers.deserialize(value, specifiedType: const FullType(String)) as String;
           break;
         case 'genres':
           result.genres.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(String)]))
-              as BuiltList<Object>);
+              specifiedType: const FullType(BuiltList, const [const FullType(String)])) as BuiltList<Object>);
           break;
       }
     }
@@ -99,12 +85,9 @@ class _$Movie extends Movie {
   @override
   final BuiltList<String> genres;
 
-  factory _$Movie([void Function(MovieBuilder) updates]) =>
-      (new MovieBuilder()..update(updates)).build();
+  factory _$Movie([void Function(MovieBuilder) updates]) => (new MovieBuilder()..update(updates)).build();
 
-  _$Movie._(
-      {this.id, this.title, this.rating, this.summary, this.image, this.genres})
-      : super._() {
+  _$Movie._({this.id, this.title, this.rating, this.summary, this.image, this.genres}) : super._() {
     if (id == null) {
       throw new BuiltValueNullFieldError('Movie', 'id');
     }
@@ -126,8 +109,7 @@ class _$Movie extends Movie {
   }
 
   @override
-  Movie rebuild(void Function(MovieBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+  Movie rebuild(void Function(MovieBuilder) updates) => (toBuilder()..update(updates)).build();
 
   @override
   MovieBuilder toBuilder() => new MovieBuilder()..replace(this);
@@ -147,10 +129,7 @@ class _$Movie extends Movie {
   @override
   int get hashCode {
     return $jf($jc(
-        $jc(
-            $jc($jc($jc($jc(0, id.hashCode), title.hashCode), rating.hashCode),
-                summary.hashCode),
-            image.hashCode),
+        $jc($jc($jc($jc($jc(0, id.hashCode), title.hashCode), rating.hashCode), summary.hashCode), image.hashCode),
         genres.hashCode));
   }
 
@@ -191,8 +170,7 @@ class MovieBuilder implements Builder<Movie, MovieBuilder> {
   set image(String image) => _$this._image = image;
 
   ListBuilder<String> _genres;
-  ListBuilder<String> get genres =>
-      _$this._genres ??= new ListBuilder<String>();
+  ListBuilder<String> get genres => _$this._genres ??= new ListBuilder<String>();
   set genres(ListBuilder<String> genres) => _$this._genres = genres;
 
   MovieBuilder();
@@ -228,21 +206,14 @@ class MovieBuilder implements Builder<Movie, MovieBuilder> {
     _$Movie _$result;
     try {
       _$result = _$v ??
-          new _$Movie._(
-              id: id,
-              title: title,
-              rating: rating,
-              summary: summary,
-              image: image,
-              genres: genres.build());
+          new _$Movie._(id: id, title: title, rating: rating, summary: summary, image: image, genres: genres.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'genres';
         genres.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'Movie', _$failedField, e.toString());
+        throw new BuiltValueNestedFieldError('Movie', _$failedField, e.toString());
       }
       rethrow;
     }
