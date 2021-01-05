@@ -154,13 +154,15 @@ class _HomePageState extends State<HomePage> {
         shrinkWrap: true,
         itemCount: _movies.length,
         itemBuilder: (BuildContext context, int index) {
+          final Movie movie = _movies[index];
+
           return ListTile(
             contentPadding: const EdgeInsets.only(top: 5, bottom: 5, left: 10),
             leading: Image.network(
-              _movies[index].image,
+              movie.image,
             ),
-            title: Text(_movies[index].getTitle()),
-            subtitle: Text(_movies[index].getShortInfo()),
+            title: Text(movie.getTitle()),
+            subtitle: Text(movie.getShortInfo()),
             isThreeLine: true,
           );
         },
